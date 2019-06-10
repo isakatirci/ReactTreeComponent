@@ -78,11 +78,8 @@ const MyCompL: React.RefForwardingComponent<ITrxBaseHandles, MyCompLProps> = (
   const onSelect = (value: SelectValue, option: Object) => {
     const expandedKeys = dataList
       .map(item => {
-        if (item.title.indexOf(value.toString()) > -1) {
-          if (item.parent) {
-            return item.parent.key;
-          }
-          return "";
+        if (item.title.indexOf(value.toString()) > -1 && item.parent) {
+          return item.parent.key;
         }
         return "";
       })
